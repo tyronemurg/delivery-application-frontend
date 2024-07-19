@@ -1,0 +1,371 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-button fill="solid" shape="round" color="light" routerLink="/home">
+        <ion-icon slot="icon-only" name="arrow-back" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Your Orders</ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-button fill="solid" shape="round" color="light">
+        <ion-icon slot="icon-only" name="share-outline" color="primary"></ion-icon>
+      </ion-button>
+      <ion-button fill="solid" shape="round" color="light">
+        <ion-icon slot="icon-only" name="search-outline" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-segment (ionChange)="segmentChanged($event)" value="list">
+    <ion-segment-button value="list">
+      <ion-label>
+        Current Orders
+      </ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="card">
+      <ion-label>
+        Past Orders
+      </ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="segment === 'list'">
+    <div *ngIf="orders.length; else elseBlock">
+    <ion-card *ngFor="let order of orders">
+        
+              
+      <ion-col size="12" class="light-bg" [routerLink]="['/orders', order.id]">
+        <ion-row class="ion-align-items-center" style="">
+          <ion-col size="2">
+            <!-- <ion-icon style="font-size:40px;" color="dark" name="thumbs-up-outline"></ion-icon> -->
+          </ion-col>
+          <ion-col size="8">
+            <ion-label>
+              <ion-row>
+<ion-col><b>Order: #{{order.id}}</b></ion-col>
+<ion-col>
+  <div *ngIf="order.status == 'open'">
+    <ion-badge class="text-white" color="dark">Open</ion-badge>
+    <!-- <p class="text-sm badge bg-default">Open</p> -->
+  </div>
+  <div *ngIf="order.status == 'in-delivery'">
+    <ion-badge class="text-white" color="warning">In Delivery</ion-badge>
+    <!-- <p class="text-sm badge bg-warning">In Delivery</p> -->
+  </div>
+  <div *ngIf="order.status == 'cancelled'">
+    <ion-badge class="text-white" color="danger">Cancelled</ion-badge>
+    <!-- <p class="text-sm badge bg-danger">Cancelled</p> -->
+  </div>
+  <div *ngIf="order.status == 'delivered'">
+    <ion-badge class="text-white" color="success">Delivered</ion-badge>
+  
+  </div>
+  
+</ion-col>
+              </ion-row>
+              
+
+              <ion-row>
+                <ion-col size="3"> <ion-icon style="font-size:40px;" color="dark" name="location-outline"></ion-icon></ion-col>
+              <ion-col size="9">
+                <b><p [innerHtml]="order.location.address"></p></b>
+             
+              <p>123 Resturant Address</p>
+            </ion-col>
+              </ion-row>
+              <p>{{order.created_at | date: 'M/d/yy, h:mm a'}}</p>
+            </ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon color="dark" name="chevron-forward"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    
+    </ion-card>
+  </div>
+    <ng-template #elseBlock>
+      <ion-list-header>
+        <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+      </ion-list-header>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-list-header>
+        <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+      </ion-list-header>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-list-header>
+        <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+      </ion-list-header>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-list-header>
+        <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+      </ion-list-header>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-list-header>
+        <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+      </ion-list-header>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-list-header>
+        <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+      </ion-list-header>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-template>
+  </div>
+
+  <div *ngIf="segment === 'card'" >
+    <div *ngIf="orders.length; else elseBlocks">
+      <div *ngFor="let order of orders">
+        <ion-card >
+        <ion-card-content *ngIf="order.status == 'delivered'">
+          <ion-col size="12" class="light-bg" [routerLink]="['/orders', order.id]">
+            <ion-row class="ion-align-items-center">
+              <ion-col size="2">
+                <!-- <img style="width:50px;" src="./assets/order.png"> -->
+              </ion-col>
+              <ion-col size="8">
+                <ion-label>
+                  <ion-row>
+    <ion-col><b>Order: #{{order.id}}</b></ion-col>
+    <ion-col>
+  
+        <ion-badge color="success">Delivered</ion-badge>
+      
+    </ion-col>
+                  </ion-row>
+                  
+    
+                  <ion-row>
+                    <ion-col size="3"><ion-icon style="font-size:40px;" color="dark" name="location-outline"></ion-icon></ion-col>
+                  <ion-col size="9"><b><p [innerHtml]="order.location.address"></p></b>
+                 
+                  <p>123 Resturant Address</p>
+                </ion-col>
+                  </ion-row>
+                  <p>{{order.created_at | date: 'M/d/yy, h:mm a'}}</p>
+                </ion-label>
+              </ion-col>
+              <ion-col size="1">
+                <ion-icon color="dark" name="chevron-forward"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-card-content>
+        <ion-card-content *ngIf="order.status == 'cancelled'">
+          <ion-col size="12" class="light-bg" [routerLink]="['/orders', order.id]">
+            <ion-row class="ion-align-items-center">
+              <ion-col size="2">
+                <!-- <ion-icon style="font-size:40px;" color="dark" name="location-outline"></ion-icon> -->
+              </ion-col>
+              <ion-col size="8">
+                <ion-label>
+                  <ion-row>
+    <ion-col><b>Order: #{{order.id}}</b></ion-col>
+    <ion-col>
+  
+        <ion-badge class="text-white" color="danger">Cancelled</ion-badge>
+      
+    </ion-col>
+                  </ion-row>
+                  
+    
+                  <ion-row>
+                    <ion-col size="3"><ion-icon style="font-size:40px;" color="dark" name="location-outline"></ion-icon></ion-col>
+                  <ion-col size="9"><b><p [innerHtml]="order.location.address"></p></b>
+                 
+                  <p>123 Resturant Address</p>
+                </ion-col>
+                  </ion-row>
+                  <p>{{order.created_at | date: 'M/d/yy, h:mm a'}}</p>
+                </ion-label>
+              </ion-col>
+              <ion-col size="1">
+                <ion-icon color="dark" name="chevron-forward"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        
+        </ion-card-content>
+        <div *ngIf="order.status == 'open'" >
+         
+        </div>
+        <div *ngIf="order.status == 'in-delivery'" >
+         
+        </div>
+      
+      </ion-card >
+    </div>
+    </div>
+    <ng-template #elseBlocks>
+      <ion-list-header>
+        <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+      </ion-list-header>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-list-header>
+        <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+      </ion-list-header>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-list-header>
+        <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+      </ion-list-header>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-list-header>
+        <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+      </ion-list-header>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-list-header>
+        <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+      </ion-list-header>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-list-header>
+        <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+      </ion-list-header>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-template>
+  </div>
+</ion-content>

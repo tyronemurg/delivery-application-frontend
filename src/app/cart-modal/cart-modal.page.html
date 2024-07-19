@@ -1,0 +1,201 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar color="light">
+      <ion-buttons slot="start">
+        <ion-button fill="solid" shape="round" color="light" routerLink="/home">
+          <ion-icon slot="icon-only" name="arrow-back" color="primary"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+       <ion-title>Cart</ion-title> 
+    </ion-toolbar>
+  </ion-header>
+<ion-content fullscreen>
+    <!-- <div class="ion-text-end">
+        <ion-button (click)="goBack()" fill="clear" color="dark">
+            <ion-icon name="close" slot="start"></ion-icon>
+        </ion-button>
+    </div> -->
+
+    <ion-card class="bordered" *ngFor="let product of cart">
+      
+
+        <ion-card-content>
+			<div class="d-flex flex-stack">
+                <!--begin::Section-->
+                <div class="d-flex align-items-center">
+                    <!--begin::Symbol-->
+                    <div class="symbol symbol-30px">
+						<img class="img-single" src="https://app.veloportal.co.za/storage/{{product.img}}" /> 
+							
+							
+							
+						
+                    </div>
+                    <!--end::Symbol-->
+
+                    <!--begin::Content-->
+                    <div class="">
+                        <!--begin::Title-->
+                        <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6" style="margin-left: 25px;text-decoration: none!important;">{{ product.name }}</a>
+                      
+                        <ion-row class="ion-align-items-center">
+                            <ion-col size="4" class="ion-align-self-center">
+                                <ion-button fill="clear" (click)="decreaseCartItem(product)">
+                                    <ion-icon name="remove-circle" color="warning"  slot="icon-only"></ion-icon>
+                                </ion-button>
+                            </ion-col>
+    
+                            <ion-col size="1" class="ion-align-self-center text-dark">
+                                {{ product.amount }}
+                            </ion-col>
+    
+                            <ion-col size="3" class="ion-align-self-center">
+                                <ion-button  fill="clear" (click)="increaseCartItem(product)">
+                                    <ion-icon color="success" name="add-circle" slot="icon-only"></ion-icon>
+                                </ion-button>
+                            </ion-col>
+    
+                            <ion-col size="1" >
+                                <ion-button color="danger" fill="clear" (click)="removeCartItem(product)">
+                                    <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                        
+                    </div>
+                    
+                </div>
+                
+
+                <!--begin::Wrapper-->
+                <div class="d-flex align-items-center" style="">
+                    <!--begin::Number-->
+                    <span class="text-dark fw-bold fs-6" style="margin-left: 35px;width:95px;">    {{ product.amount * product.price | currency:'R ' }}</span>
+                    <!--end::Number-->
+
+                    <!--begin::Info-->
+                    <div class="d-flex flex-center">
+                        <!--begin::label-->
+                       
+                        <!--end::label-->
+                    </div>
+                    <!--end::Info-->
+                </div>
+                <!--end::Wrapper-->
+            </div>
+          
+        </ion-card-content>
+    </ion-card>
+
+
+            
+   
+    <!--button to close modal-->
+    
+    <div class="ion-padding">
+        <ion-list>
+            <!-- <ion-item *ngFor="let product of cart" class="ion-text-wrap">
+                <ion-grid>
+                
+                    <ion-row class="ion-align-items-center">
+                        <ion-col size="2" class="ion-align-self-center">
+                            <ion-button color="medium" fill="clear" (click)="decreaseCartItem(product)">
+                                <ion-icon name="remove-circle" slot="icon-only"></ion-icon>
+                            </ion-button>
+                        </ion-col>
+
+                        <ion-col size="1" class="ion-align-self-center">
+                            {{ product.amount }}
+                        </ion-col>
+
+                        <ion-col size="2" class="ion-align-self-center">
+                            <ion-button color="medium" fill="clear" (click)="increaseCartItem(product)">
+                                <ion-icon name="add-circle" slot="icon-only"></ion-icon>
+                            </ion-button>
+                        </ion-col>
+
+                        <ion-col size="2" offset="5">
+                            <ion-button color="medium" fill="clear" (click)="removeCartItem(product)">
+                                <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+
+                  
+                    <ion-row>
+                        <ion-col size="9">
+                            <b>{{ product.name }}</b>
+                        </ion-col>
+                        <ion-col size="3" class="ion-text-end">
+                            {{ product.amount * product.price | currency:'ZAR ' }}
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item> -->
+            <ion-item>
+                <ion-grid>
+                    <!--row with 2 columns: 'Total' total calculated by getTotal function with currency pipe-->
+                    <ion-row>
+                        <ion-col size="8"> Total: </ion-col>
+                        <ion-col size="4" class="ion-text-end">
+                            {{ getTotal() | currency:'ZAR ' }}
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+        </ion-list>
+        <p class="text-center mt-5" style="font-size:16px;font-weight:600;">Select Order Method</p>
+        <form #myForm="ngForm" (submit)="checkout(myForm)" novalidate>
+            <ion-card class="card-order-method">
+                <ion-col size="12" class="light-bg">
+                    <ion-row class="ion-align-items-center">
+                        <ion-col size="1">
+                            <ion-icon color="dark" name="fast-food-outline"></ion-icon>
+                        </ion-col>
+                        <ion-col size="10">
+                            <ion-label style="color:#000;font-weight:600;">Takeaway </ion-label>
+                        </ion-col>
+                        <ion-col size="1">
+                            <input id="takeaway" type="radio" class="custom-control-input" value="takeaway" name="orderType" #orderType="ngModel" ngModel required />
+                            <!-- <ion-icon color="primary" name="chevron-forward"></ion-icon> -->
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-card>
+            <ion-card class="card-order-method">
+                <ion-col size="12" class="light-bg">
+                    <ion-row class="ion-align-items-center">
+                        <ion-col size="1">
+                            <ion-icon color="dark" name="bicycle-outline"></ion-icon>
+                        </ion-col>
+                        <ion-col size="10">
+                            <ion-label style="color:#000;font-weight:600;">Delivery </ion-label>
+                        </ion-col>
+                        <ion-col size="1">
+                            <input id="delivery" type="radio" class="custom-control-input" value="delivery" name="orderType" #orderType="ngModel" ngModel required />
+                            <!-- <ion-icon color="primary" name="chevron-forward"></ion-icon> -->
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-card>
+            <ion-card class="card-order-method">
+                <ion-col size="12" class="light-bg">
+                    <ion-row class="ion-align-items-center">
+                        <ion-col size="1">
+                            <ion-icon color="dark" name="restaurant-outline"></ion-icon>
+                        </ion-col>
+                        <ion-col size="10">
+                            <ion-label style="color:#000;font-weight:600;">Order & Book Table </ion-label>
+                        </ion-col>
+                        <ion-col size="1">
+                            <input id="booktable" type="radio" class="custom-control-input" value="booktable" name="orderType" #orderType="ngModel" ngModel required />
+                            <!-- <ion-icon color="primary" name="chevron-forward"></ion-icon> -->
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-card>
+            
+           <div class="pl-5 pr-5"><ion-button shape="round" expand="full" color="dark" type="submit"> Checkout </ion-button></div>
+        </form>
+    
+    </div>
+</ion-content>

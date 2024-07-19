@@ -1,0 +1,8 @@
+{
+  "name": "Platter",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

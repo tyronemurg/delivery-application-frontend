@@ -1,0 +1,61 @@
+{
+  "categories": [{
+      "title": "Offers",
+      "img": "https://client-apps.co.za/ordereat/assets/foodui/c1.png"
+    },
+    {
+      "title": "Burgers",
+      "img": "https://client-apps.co.za/ordereat/assets/foodui/c2.png"
+    },
+    {
+      "title": "Chicken",
+      "img": "https://client-apps.co.za/ordereat/assets/foodui/c3.png"
+    },
+    {
+      "title": "Pizza",
+      "img": "https://client-apps.co.za/ordereat/assets/foodui/c4.png"
+    },
+    {
+      "title": "Asian",
+      "img": "https://client-apps.co.za/ordereat/assets/foodui/c5.png"
+    },
+    {
+      "title": "Italian",
+      "img": "https://client-apps.co.za/ordereat/assets/foodui/c6.png"
+    },
+    {
+      "title": "Dessert",
+      "img": "https://client-apps.co.za/ordereat/assets/foodui/c7.png"
+    }
+  ],
+  "highlights": [{
+      "img": "https://client-apps.co.za/ordereat/assets/foodui/n1.png"
+    },
+    {
+      "img": "https://client-apps.co.za/ordereat/assets/foodui/n2.png"
+    },
+    {
+      "img": "https://client-apps.co.za/ordereat/assets/foodui/n3.png"
+    },
+    {
+      "img": "https://client-apps.co.za/ordereat/assets/foodui/n4.png"
+    }
+  ],
+  "featured": [
+      {
+        "name": "Vapiano",
+        "rating": "4.5 Excellent",
+        "ratings": "(500+)",
+        "distance": "0.7 miles away",
+        "img": "https://client-apps.co.za/ordereat/assets/foodui/f1.jpeg"
+      },
+      {
+          "name": "✨Urban Greens✨",
+          "id": "2",
+          "rating": "4.8 Excellent",
+          "ratings": "(500+)",
+          "distance": "0.7 miles away",
+          "img": "https://client-apps.co.za/ordereat/assets/foodui/f2.jpeg"
+      }
+  ]
+}

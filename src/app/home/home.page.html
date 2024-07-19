@@ -1,0 +1,236 @@
+
+<ion-content>
+  <!-- <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher> -->
+
+  <ion-row class="info-row" #hideheader>
+    <ion-col size="1"></ion-col>
+    <ion-col size="7">
+      <ion-text color="dark" routerLink="/profile" *ngIf="user != undefined">
+        <span>Greetings</span><br>
+        <b>{{ user["name"] }}</b>
+      </ion-text>
+    </ion-col>
+    <ion-col size="2" class="" style="padding-top: 10px;">
+      
+      <a  routerLink="/profile" style=" font-size: 30px;color:#000;"><ion-icon name="person-outline"></ion-icon></a>
+    </ion-col>
+    <ion-col size="2" class="" style="padding-top: 10px;">
+      
+      <a routerLink="/cart-modal" style=" font-size: 30px;color:#000;"><ion-icon name="cart-outline"></ion-icon></a>
+    </ion-col>
+  </ion-row>
+<!-- 
+  <ion-row class="sticky-row" (click)="hideresults()">
+    <ion-col size="12">
+      <ion-searchbar placeholder="Search for a meal"  (ionChange)="showresults()" [(ngModel)]="search" #searchbar></ion-searchbar>
+      <ion-list class="resultsList" *ngIf="results">
+        <ion-item *ngFor="let d of searchdata | filter:search:filterKeys">
+          <ion-col size="2">
+            <div class="meal-image-search" [routerLink]="['/meals', d.id]" [style.background-image]="'url('+ baseUrl + d.img + ')'"></div>
+          </ion-col>
+          <ion-col [routerLink]="['/meals', d.id]">{{d.name}}</ion-col>
+          <ion-col><b>R{{d.price}}</b></ion-col>
+          <ion-col><ion-button fill="clear" (click)="addToCart(d)">
+            <ion-icon name="add"></ion-icon>
+          </ion-button></ion-col>
+          
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row> -->
+
+   <!-- <ion-list *ngIf="size">
+
+    <ion-slides [options]="catSlideOpts">
+    <ion-slide style="display:block;" *ngFor="let cat of categories" [routerLink]="['/categories', cat.id]" >
+      <p><img style="width:60px;height:60px;border-radius:50%;" src="https://app.veloportal.co.za/storage/{{cat.img}}"></p>
+     <p>{{ cat.name }}</p> 
+    </ion-slide>
+  </ion-slides> 
+</ion-list>  -->
+
+<div class="text-center" *ngIf="size" style="border-top-left-radius: 30px;border-top-right-radius: 30px;border-bottom-left-radius: 30px;
+border-bottom-right-radius: 30px;background: #eee;padding:10px;margin-top: 20px;">
+  <ion-col size="12" class=" pt-2 pb-2"><h2 style="color:#000;"><b>Categories</b></h2></ion-col>
+  <ion-row style="padding-bottom:10px;">
+    <ion-col size="6" style="display:block;" *ngFor="let cat of categories" [routerLink]="['/categories', cat.id]" >
+      <div class="text-center" style="background:#fff;padding: 10px;
+     border-radius: 10px;">
+      <p><img style="width:60px;height:60px;border-radius:50%;" src="https://app.veloportal.co.za/storage/{{cat.img}}"></p>
+     <p class="text-dark"><b>{{ cat.name }}</b></p> 
+   </div>
+    </ion-col> 
+  </ion-row>
+    
+
+</div>
+<ion-list *ngIf="!size" >
+  <ion-list-header>
+    <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+  </ion-list-header>
+  <ion-item>
+    <ion-thumbnail slot="start">
+      <ion-skeleton-text></ion-skeleton-text>
+    </ion-thumbnail>
+    <ion-label>
+      <h3>
+        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+      </h3>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+    </ion-label>
+  </ion-item>
+  <ion-list-header>
+    <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+  </ion-list-header>
+  <ion-item>
+    <ion-thumbnail slot="start">
+      <ion-skeleton-text></ion-skeleton-text>
+    </ion-thumbnail>
+    <ion-label>
+      <h3>
+        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+      </h3>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+    </ion-label>
+  </ion-item>
+  <ion-list-header>
+    <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+  </ion-list-header>
+  <ion-item>
+    <ion-thumbnail slot="start">
+      <ion-skeleton-text></ion-skeleton-text>
+    </ion-thumbnail>
+    <ion-label>
+      <h3>
+        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+      </h3>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+
+<ion-list *ngIf="!size">
+  <ion-list-header>
+    <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+  </ion-list-header>
+  <ion-item>
+    <ion-thumbnail slot="start">
+      <ion-skeleton-text></ion-skeleton-text>
+    </ion-thumbnail>
+    <ion-label>
+      <h3>
+        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+      </h3>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+    </ion-label>
+  </ion-item>
+  <ion-list-header>
+    <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+  </ion-list-header>
+  <ion-item>
+    <ion-thumbnail slot="start">
+      <ion-skeleton-text></ion-skeleton-text>
+    </ion-thumbnail>
+    <ion-label>
+      <h3>
+        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+      </h3>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+    </ion-label>
+  </ion-item>
+  <ion-list-header>
+    <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+  </ion-list-header>
+  <ion-item>
+    <ion-thumbnail slot="start">
+      <ion-skeleton-text></ion-skeleton-text>
+    </ion-thumbnail>
+    <ion-label>
+      <h3>
+        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+      </h3>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+
+<ion-list *ngIf="!size">
+  <ion-list-header>
+    <ion-skeleton-text animated style="width: 80px"></ion-skeleton-text>
+  </ion-list-header>
+  <ion-item>
+    <ion-thumbnail slot="start">
+      <ion-skeleton-text></ion-skeleton-text>
+    </ion-thumbnail>
+    <ion-label>
+      <h3>
+        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+      </h3>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+
+<div style="">
+  <ion-list *ngIf="size">
+    <div style="border-top-left-radius: 30px;border-top-right-radius: 30px;border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;margin-top: 20px;
+    background: #eee;" *ngFor="let entry of data">
+    <!-- <ion-list-header style="padding-bottom:30px;">
+      <h2><b>{{ entry.name}}</b></h2>
+    </ion-list-header> -->
+    <ion-row class="text-center" style="padding:10px;margin-top: 20px;padding-bottom: 50px;">
+      <ion-col size="12" class=" pt-2 pb-2"><h2 style="color:#000;margin-top: 35px;margin-bottom: 25px;"><b>{{ entry.name}}</b></h2></ion-col>
+     <ion-col size="6" *ngFor="let meal of entry.meals" class="meal-row">
+     <div class="text-center" style="background:#fff;padding: 10px;
+     border-radius: 10px;">
+      <div style="margin-bottom: 15px;"class="meal-image" [routerLink]="['/meals', meal.id]" [style.background-image]="'url('+ baseUrl + meal.img + ')'"></div>
+      <ion-label class="mt-5 text-dark small" [routerLink]="['/meals', meal.id]">
+        <b>{{ meal.name }}</b></ion-label>
+        <br>
+        <ion-text color="success"><b>{{ meal.price | currency:'R' }}</b></ion-text>
+        <!-- <p [innerHtml]=" meal.info"></p>
+        <ion-button fill="clear" (click)="addToCart(meal)">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      
+      <ion-text color="dark"><b>{{ meal.price | currency:'ZAR ' }}</b></ion-text> -->
+    
+   
+      
+     </div>
+      </ion-col>
+      
+    </ion-row>
+  </div>
+  </ion-list>
+
+    <ion-fab vertical="top" horizontal="end" slot="fixed" style="display:none;">
+		<ion-fab-button (click)="openCart()" #cart>
+			<div class="cart-length">{{ cartItemCount | async }}</div>
+			<ion-icon name="cart" class="cart-icon"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+</div>
+</ion-content>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-device/cordova-plugin-device.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-device/cordova-plugin-device.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-ionic-keyboard/cordova-plugin-ionic-keyboard.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-ionic-keyboard/cordova-plugin-ionic-keyboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-ionic-webview/cordova-plugin-ionic-webview.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-ionic-webview/cordova-plugin-ionic-webview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-nativestorage/cordova-plugin-nativestorage.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-nativestorage/cordova-plugin-nativestorage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-splashscreen/cordova-plugin-splashscreen.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-splashscreen/cordova-plugin-splashscreen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-statusbar/cordova-plugin-statusbar.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-statusbar/cordova-plugin-statusbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-whitelist/cordova-plugin-whitelist.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/cordova-plugin-whitelist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ordereat.iml" filepath="$PROJECT_DIR$/.idea/ordereat.iml" />
+    </modules>
+  </component>
+</project>

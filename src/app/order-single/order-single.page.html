@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-button fill="solid" shape="round" color="light" routerLink="/orders">
+        <ion-icon slot="icon-only" name="arrow-back" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title *ngIf = "Orders">Order #{{ Orders.id }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngIf = "Orders">
+  <ion-card-header style="text-align: center;">
+    <ion-card-title>Order for  <span class="text-success">{{ user["name"] }}</span></ion-card-title>
+    <ion-col>
+      <div *ngIf="Orders.status == 'open'">
+        <ion-badge color="primary">Open</ion-badge>
+        <!-- <p class="text-sm badge bg-default">Open</p> -->
+      </div>
+      <div *ngIf="Orders.status == 'in-delivery'">
+        <ion-badge color="warning">In Delivery</ion-badge>
+        <!-- <p class="text-sm badge bg-warning">In Delivery</p> -->
+      </div>
+      <div *ngIf="Orders.status == 'cancelled'">
+        <ion-badge color="danger">Cancelled</ion-badge>
+        <!-- <p class="text-sm badge bg-danger">Cancelled</p> -->
+      </div>
+      <div *ngIf="Orders.status == 'delivered'">
+        <ion-badge color="success">Delivered</ion-badge>
+      
+      </div>
+      
+    </ion-col>
+    <div [innerHtml]="Orders.location.address"></div>
+    <div [innerHtml]="Orders.location.lat"></div>
+    <div [innerHtml]="Orders.location.long"></div>
+    <ion-grid>
+      <ion-row>
+        
+        <!-- <ion-col>   <ion-button shape="round" expand="full" color="primary" > Track Order </ion-button></ion-col> -->
+       
+
+      </ion-row>
+    </ion-grid>
+    
+ 
+  </ion-card-header>
+
+
+</ion-card>
+<!-- <div style="height:350px;" #mapElement class="map">
+</div> -->
+<!-- <img src="https://app.veloportal.co.za/orders/qrcodes/{{Orders.qr}}" /> -->
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-direction [origin]="origin" [destination]="destination" [renderOptions]="renderOptions" 
+  [markerOptions]="markerOptions"></agm-direction>
+</agm-map>
+<ion-card *ngIf = "Orders">
+    
+  
+    <ion-card-content *ngIf="Orders['status'] == 'in-delivery'">
+      <ion-button expand="block" >Track Order</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <!-- <ion-card>
+    <ion-card-header>
+      <ion-card-title>Address</ion-card-title>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content *ngIf="Orders">
+     <div [innerHtml]="Orders.location.address"></div>
+     <div [innerHtml]="Orders.location.lat"></div>
+     <div [innerHtml]="Orders.location.long"></div>
+    </ion-card-content>
+  </ion-card> -->
+  <h2  style="text-align: center;">Order Details</h2>
+  <ion-card>
+    <ion-card-header *ngFor = "let orders of items" style="text-align: center;">
+
+        <ion-card-subtitle>{{ orders.name }} X {{ orders.amount }}</ion-card-subtitle>
+        <ion-card-subtitle>Price: {{ orders.price }}</ion-card-subtitle>
+        <ion-card-subtitle></ion-card-subtitle>
+     
+    
+    </ion-card-header>
+
+   
+  </ion-card>
+
+
+
+
+</ion-content>

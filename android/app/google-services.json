@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "692868670767",
+    "project_id": "pusher-d47fb",
+    "storage_bucket": "pusher-d47fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692868670767:android:573ab7a08c24de7e312dda",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692868670767-h0adfj0fop9i9m96ti20p58ba4mhok53.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": ""
+         
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692868670767-h0adfj0fop9i9m96ti20p58ba4mhok53.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

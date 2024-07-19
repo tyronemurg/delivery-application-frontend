@@ -1,0 +1,255 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-button fill="solid" shape="round" color="light" routerLink="/home">
+        <ion-icon slot="icon-only" name="arrow-back" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title *ngIf = "Meals">{{ Meals.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf = "Meals" [fullscreen]="true" scrollEvents="true"  (ionScroll)="onScroll($event)">
+  
+  <div class="header-image" style="padding:15px;margin-top:45px;"><img style="border-radius:20px;" src="https://app.veloportal.co.za/storage/{{Meals.img}}" /> </div>
+  <!-- <div #img class="header-image" [style.background-image]="'url(' + data?.img + ')'">
+  </div> 
+<div class="header-image mt-5 text-center"  style="padding:15px;"><img style="border-radius:20px;" src="../../assets/Component12.png" /> </div>-->
+
+  <ion-header collapse="condense" class="ion-no-border">
+    <ion-toolbar color="light">
+      <ion-title size="medium">{{ Meals.name }}</ion-title>
+      
+    </ion-toolbar>
+  </ion-header>
+
+  <div *ngIf="data">
+    <ol class="list-group p-3 mt-4 ">
+      <li class="list-group-item py-3 d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Portion</div>
+  
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-primary btn-sm dre">Single</button>
+          <button type="button" class="btn btn-primary btn-sm dre1 ">Double</button>
+        
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold ">Select</div>
+        
+        </div>
+        <div class="d-flex   text-white">
+          <div class="p-2 "><svg class="icon" width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24.3654 14.0813H22.4307L22.5329 11.9359C22.5444 11.6928 22.4559 11.4554 22.2879 11.2793C22.12 11.1032 21.8871 11.0035 21.6438 11.0035H2.06266C1.81921 11.0035 1.58645 11.1032 1.41852 11.2793C1.25059 11.4555 1.16202 11.6928 1.1736 11.9359L1.5688 20.2263C1.66641 22.275 2.92131 23.9988 4.68444 24.782H0.890099C0.398616 24.782 0 25.1806 0 25.6721C0 26.1635 0.398616 26.5622 0.890099 26.5622H22.9419C23.4333 26.5622 23.832 26.1635 23.832 25.6721C23.832 25.1806 23.4333 24.782 22.9419 24.782H19.0222C20.4514 24.147 21.5456 22.8939 21.961 21.3505H24.3654C26.3695 21.3505 28 19.72 28 17.7159C28 15.7118 26.3695 14.0813 24.3654 14.0813ZM16.8853 23.4542H6.82128C4.96156 23.4542 3.43549 21.9991 3.34692 20.1414L2.99622 12.7834H20.7102L20.3597 20.1414C20.2711 21.9991 18.745 23.4542 16.8853 23.4542ZM24.3654 19.5703H22.1691L22.3459 15.8596C22.3591 15.8602 22.3722 15.8615 22.3856 15.8615H24.3654C25.388 15.8615 26.2198 16.6933 26.2198 17.7159C26.2198 18.7385 25.388 19.5703 24.3654 19.5703Z" fill="#D8D8D8"/>
+            <path d="M9.23774 9.5445C9.37986 9.62847 9.53578 9.66852 9.68977 9.66852C9.99418 9.66852 10.2907 9.51216 10.4569 9.23119C10.7071 8.80795 10.5668 8.26217 10.1436 8.01205C9.64867 7.7195 9.30658 7.17981 9.20511 6.53152C9.09948 5.85652 9.27587 5.1842 9.67656 4.73337C9.68012 4.72936 9.68368 4.72536 9.6871 4.7212C9.78397 4.60816 9.88084 4.49705 9.97682 4.38682C10.8002 3.44124 11.6517 2.46376 11.8962 1.04109C11.9795 0.556576 11.6542 0.0962467 11.1699 0.0130224C10.6853 -0.0702019 10.225 0.254833 10.1418 0.739343C9.98172 1.67039 9.35731 2.38736 8.6344 3.21753C8.53694 3.32938 8.43873 3.44228 8.34052 3.5568C7.59417 4.40062 7.25994 5.61471 7.44642 6.80641C7.63008 7.98223 8.28311 8.98018 9.23774 9.5445Z" fill="#D8D8D8"/>
+            <path d="M12.0002 7.53451C12.2941 8.29124 12.8183 8.98433 13.4765 9.48605C13.6377 9.60888 13.8272 9.66837 14.0155 9.66837C14.2837 9.66837 14.549 9.54762 14.724 9.31782C15.0221 8.92692 14.9467 8.36838 14.5556 8.07035C14.1604 7.76905 13.8338 7.33898 13.6596 6.89022C13.3126 5.99671 13.6414 5.10632 14.759 3.91284C15.5514 3.06666 16.0578 2.07004 16.2235 1.03041C16.3008 0.545006 15.9702 0.0886815 15.4846 0.0112429C14.9992 -0.0661958 14.5429 0.264624 14.4654 0.750173C14.3543 1.44727 14.0159 2.10194 13.4596 2.69608C12.8759 3.3193 11.0998 5.21595 12.0002 7.53451Z" fill="#D8D8D8"/>
+            </svg>
+            </div>
+          <div class="p-2 "><svg class="icon" width="20" height="34" viewBox="0 0 20 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.0276 0.00255391C10.4786 -0.0364929 10.0024 0.376819 9.96345 0.9256L9.59994 6.04306H6.97265C6.81799 6.04306 6.66552 6.07905 6.5272 6.14818C6.41218 6.24367 2.65552 7.60201 2.05952 12.0196H0.996093C0.445984 12.0196 0 12.4655 0 13.0156V17C0 17.5501 0.445984 17.9961 0.996093 17.9961H2.10846L3.77393 31.3824C3.96046 32.8747 5.2352 34 6.7391 34H13.1827C14.6865 34 15.9613 32.8747 16.1479 31.3818L17.8134 17.9961H18.9258C19.4759 17.9961 19.9219 17.5501 19.9219 17V13.0156C19.9219 12.4655 19.4759 12.0196 18.9258 12.0196H17.8623C17.2683 7.61569 13.4997 6.23531 13.3947 6.14818C13.2564 6.07899 13.1039 6.04299 12.9492 6.04299H11.5972L11.9507 1.06671C11.9896 0.517932 11.5764 0.0415344 11.0276 0.00255391ZM7.20779 8.03518H9.45843L9.17541 12.0196H4.07502C4.61291 9.08214 7.15148 8.08133 7.20779 8.03518ZM8.51122 21.3476C7.45144 21.6212 6.27983 21.8491 4.6066 21.9391L4.11599 17.9961H8.74928L8.51122 21.3476ZM14.1712 31.1352C14.109 31.6327 13.6841 32.0078 13.1828 32.0078H6.73917C6.23786 32.0078 5.81293 31.6328 5.75084 31.1358L4.85316 23.9206C6.29378 23.8354 7.40124 23.6533 8.36306 23.4339L7.97133 28.9489C7.93235 29.4977 8.3456 29.9741 8.89431 30.0131C9.44542 30.0518 9.91962 29.637 9.95847 29.0901L10.3988 22.8914C11.7596 22.5033 13.0946 22.1421 15.305 22.0223L14.1712 31.1352ZM15.5546 20.0159C13.3158 20.1094 11.8483 20.428 10.5487 20.7809L10.7465 17.996H15.8059L15.5546 20.0159ZM17.9297 16.0039H1.99219V14.0117H17.9297V16.0039ZM12.7141 8.03518C12.7987 8.10464 15.2988 9.02636 15.8468 12.0196H11.1726L11.4556 8.03518H12.7141Z" fill="black"/>
+            </svg>
+            </div>
+         
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold ">Size</div>
+        
+        </div>
+        <div class="d-flex   text-white">
+          <div class="p-2">
+            <svg class="icon" width="17" height="22" viewBox="0 0 17 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.4652 3.1425H15.4045L15.4237 2.93246C15.4241 2.92788 15.4245 2.92329 15.4248 2.9187C15.4845 2.06761 15.2131 1.22549 14.6988 0.666005C14.304 0.236496 13.7931 0 13.2601 0C13.2598 0 13.2596 0 13.2594 0L3.5637 0.00394517C3.03057 0.00415958 2.5194 0.240999 2.12434 0.670808C1.60996 1.23051 1.33827 2.07263 1.39759 2.92354C1.39793 2.92813 1.39831 2.93272 1.39869 2.93731L1.41782 3.14748C0.626043 3.20833 0 3.88021 0 4.69797V5.65137C0 6.50906 0.688495 7.20685 1.53477 7.20685H1.78737L3.08092 21.4159C3.11105 21.7468 3.38501 22 3.71293 22H3.71322L13.1013 21.9959C13.429 21.9958 13.7027 21.7428 13.733 21.412L15.0326 7.20689H15.4652C16.3115 7.20689 17 6.50911 17 5.65142V4.69802C17 3.84028 16.3115 3.1425 15.4652 3.1425ZM3.05316 1.54762C3.16097 1.43034 3.33716 1.29046 3.56416 1.29037L13.2599 1.28647H13.2601C13.4867 1.28647 13.6626 1.42592 13.7702 1.54295C14.0475 1.84458 14.1927 2.32191 14.1591 2.82093L14.1297 3.1425H2.69216L2.66339 2.82642C2.63009 2.32731 2.7756 1.84969 3.05316 1.54762ZM12.9666 15.8551H3.84947L3.34532 10.3175H13.4732L12.9666 15.8551ZM4.29175 20.7133L3.96659 17.1415H12.8489L12.5225 20.7097L4.29175 20.7133ZM13.591 9.03106H3.22821L3.06213 7.20689H13.7578L13.591 9.03106ZM15.7307 5.65142C15.7307 5.79975 15.6116 5.92042 15.4652 5.92042H1.53481C1.38846 5.92042 1.26939 5.79975 1.26939 5.65142V4.69802C1.26939 4.54969 1.38846 4.42901 1.53481 4.42901H15.4652C15.6115 4.42901 15.7306 4.54969 15.7306 4.69802V5.65142H15.7307Z" fill="#D8D8D8"/>
+              </svg>
+              
+          </div>
+          <div class="p-2 "><svg class="icon" width="24" height="31" viewBox="0 0 24 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.8333 4.42807H21.7475L21.7746 4.13211C21.7752 4.12564 21.7757 4.11918 21.7762 4.11271C21.8605 2.91346 21.4774 1.72683 20.7513 0.938462C20.1939 0.333244 19.4726 0 18.7201 0C18.7197 0 18.7194 0 18.7191 0L5.0311 0.00555911C4.27845 0.00586123 3.5568 0.339589 2.99907 0.94523C2.27288 1.7339 1.88933 2.92053 1.97307 4.11954C1.97355 4.12601 1.97409 4.13247 1.97463 4.13894L2.00163 4.43508C0.883825 4.52082 0 5.46756 0 6.61987V7.9633C0 9.17186 0.971992 10.1551 2.16673 10.1551H2.52334L4.34953 30.1769C4.39206 30.6433 4.77884 31 5.24178 31H5.2422L18.4959 30.9942C18.9586 30.994 19.345 30.6375 19.3877 30.1715L21.2225 10.1552H21.8333C23.028 10.1552 24 9.17192 24 7.96336V6.61993C24 5.41131 23.028 4.42807 21.8333 4.42807ZM4.31035 2.18074C4.46255 2.01548 4.71128 1.81837 5.03176 1.81825L18.7198 1.81275H18.7201C19.0401 1.81275 19.2884 2.00925 19.4403 2.17415C19.8318 2.59918 20.0367 3.27178 19.9893 3.97494L19.9478 4.42807H3.8007L3.76008 3.98268C3.71307 3.27939 3.91849 2.60638 4.31035 2.18074ZM18.3058 22.3412H5.43454L4.72281 14.5383H19.021L18.3058 22.3412ZM6.05894 29.1869L5.59989 24.154H18.1397L17.6788 29.1818L6.05894 29.1869ZM19.1872 12.7256H4.55747L4.32301 10.1552H19.4228L19.1872 12.7256ZM22.208 7.96336C22.208 8.17237 22.0399 8.34241 21.8333 8.34241H2.16679C1.96017 8.34241 1.79208 8.17237 1.79208 7.96336V6.61993C1.79208 6.41092 1.96017 6.24088 2.16679 6.24088H21.8332C22.0398 6.24088 22.2079 6.41092 22.2079 6.61993V7.96336H22.208Z" fill="black"/>
+            </svg>
+            
+            </div>
+          <div class="p-2 "><svg class="icon" width="29" height="38" viewBox="0 0 29 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M26.3819 5.42796H26.2782L26.311 5.06517C26.3117 5.05724 26.3124 5.04931 26.3129 5.04139C26.4148 3.57133 25.9518 2.11676 25.0745 1.15037C24.4009 0.408493 23.5294 0 22.6201 0C22.6197 0 22.6193 0 22.6189 0L6.07925 0.00681439C5.16979 0.00718474 4.2978 0.41627 3.62387 1.15867C2.7464 2.12542 2.28294 3.58 2.38413 5.04976C2.38471 5.05768 2.38536 5.06561 2.38601 5.07354L2.41863 5.43655C1.06796 5.54165 0 6.70217 0 8.11468V9.76147C0 11.2429 1.17449 12.4482 2.61814 12.4482H3.04904L5.25569 36.991C5.30708 37.5627 5.77443 38 6.33382 38H6.33432L22.3492 37.9929C22.9083 37.9927 23.3752 37.5557 23.4268 36.9844L25.6438 12.4483H26.3819C27.8255 12.4483 29 11.243 29 9.76154V8.11475C29 6.63322 27.8255 5.42796 26.3819 5.42796ZM5.20834 2.67317C5.39225 2.47059 5.6928 2.22897 6.08004 2.22882L22.6198 2.22208H22.6201C23.0068 2.22208 23.3068 2.46296 23.4903 2.66509C23.9634 3.1861 24.211 4.01056 24.1538 4.87251L24.1036 5.42796H4.59251L4.54343 4.88199C4.48662 4.0199 4.73485 3.19491 5.20834 2.67317ZM22.1195 27.386H6.56674L5.70673 17.8212H22.9838L22.1195 27.386ZM7.32122 35.7775L6.76653 29.6081H21.9188L21.3618 35.7713L7.32122 35.7775ZM23.1846 15.5991H5.50694L5.22364 12.4483H23.4692L23.1846 15.5991ZM26.8346 9.76154C26.8346 10.0177 26.6315 10.2262 26.3819 10.2262H2.61821C2.36854 10.2262 2.16543 10.0177 2.16543 9.76154V8.11475C2.16543 7.85855 2.36854 7.65012 2.61821 7.65012H26.3818C26.6315 7.65012 26.8346 7.85855 26.8346 8.11475V9.76154H26.8346Z" fill="#D8D8D8"/>
+            </svg>
+            
+            </div>
+         
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold ">Ice</div>
+        
+        </div>
+        <div class="d-flex   text-white">
+          <div class="p-2 "><svg class="icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.85" y="0.85" width="12.3" height="12.3" rx="3.15" stroke="#D8D8D8" stroke-width="1.7"/>
+            </svg>
+            
+            </div>
+            <div class="p-2">
+              <svg class="icon" width="29" height="20" viewBox="0 0 29 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.85" y="0.85" width="12.3" height="12.3" rx="3.15" stroke="#D8D8D8" stroke-width="1.7"/>
+                <rect x="15.85" y="6.85" width="12.3" height="12.3" rx="3.15" stroke="#D8D8D8" stroke-width="1.7"/>
+                </svg>
+                
+            </div>
+          <div class="p-2 ">
+            <svg class="icon" width="29" height="27" viewBox="0 0 29 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8.85" y="0.85" width="12.3" height="12.3" rx="3.15" stroke="black" stroke-width="1.7"/>
+              <rect x="15.85" y="13.85" width="12.3" height="12.3" rx="3.15" stroke="black" stroke-width="1.7"/>
+              <rect x="0.85" y="13.85" width="12.3" height="12.3" rx="3.15" stroke="black" stroke-width="1.7"/>
+              </svg>
+              
+            </div>
+         
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold mt-2">{{ Meals.name }}</div>
+        
+        </div>
+        <div class="d-flex   text-white">
+          <div class="p-2 float-end">
+
+            <ion-text  color="success"><b>{{ Meals.price | currency:'ZAR ' }}</b></ion-text>
+            
+            </div>
+          
+         
+         
+        </div>
+      </li>
+      
+    </ol>
+    <ion-row>
+
+     
+      <!-- <ion-col size="12" class="light-bg ion-padding-start">
+        <ion-icon name="star" color="primary"></ion-icon>
+        <ion-text color="primary">
+          {{ data.rating }}</ion-text>
+        <ion-text color="medium"> {{ data.ratings }}
+          <span *ngFor="let tag of data.tags | slice:0:2"> · {{ tag }} </span>
+        </ion-text>
+      </ion-col>
+      <ion-col size="12" class="light-bg ion-padding-start">
+        <ion-icon name="location-outline" color="medium"></ion-icon>
+        <ion-text>
+          {{ data.distance }}
+        </ion-text>
+      </ion-col> -->
+      <!-- <ion-col size="12" class="ion-no-padding">
+        <ion-item lines="full">
+          <ion-label class="ion-text-wrap">
+            <ion-text color="dark"><b>Price</b></ion-text>
+           </ion-label>
+          <ion-label class="ion-text-wrap ">
+            <ion-text color="dark"><b>{{ Meals.price | currency:'ZAR ' }}</b></ion-text>
+           </ion-label>
+           
+        </ion-item>
+      </ion-col> -->
+      <!-- <ion-col size="12" class="light-bg ion-padding">
+        <ion-badge color="danger">
+          <ion-icon name="pricetag-outline"></ion-icon>
+          Meal Deals
+        </ion-badge>
+      </ion-col>
+       -->
+     
+      <!-- <ion-col size="12" class="ion-no-padding">
+        <ion-item lines="full">
+          <ion-label class="ion-text-wrap">
+            <p [innerHtml]='Meals.info'></p>
+           </ion-label>
+        </ion-item>
+      </ion-col> -->
+      <!-- <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-select interface="action-sheet" placeholder="Select size">
+              <ion-select-option value="1/4">1/4</ion-select-option>
+              <ion-select-option value="1/2">1/2</ion-select-option>
+              <ion-select-option value="1">1</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col> -->
+      
+      
+      <!-- <ion-col size="12" class="light-bg">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="1">
+            <ion-icon color="medium" name="location-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="10">
+            <ion-label>Restaurant info
+              <p>Map, allergene ad hygiene rating</p>
+            </ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon color="primary" name="chevron-forward"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-col> -->
+    </ion-row>
+  </div>
+
+  <!-- <ion-list *ngFor="let entry of data">
+    <ion-list-header>
+      <ion-label>{{ entry.name}}</ion-label>
+    </ion-list-header>
+    <ion-row *ngFor="let meal of entry.meals" class="ion-padding meal-row">
+      <ion-col size="8" class="border-bottom">
+        <ion-label routerLink="/details">
+          {{ meal.name }}
+          <p>{{ meal.info }}</p></ion-label>
+          <ion-button fill="clear" (click)="addToCart(meal)">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        
+        <ion-text color="dark"><b>{{ meal.price | currency:'ZAR ' }}</b></ion-text>
+      </ion-col>
+      <ion-col size="4" class="border-bottom">
+        <div class="meal-image" [style.background-image]="'url('+ baseUrl + meal.img + ')'"></div>
+      </ion-col>
+    </ion-row>
+  </ion-list> -->
+
+
+  <!-- <div class="ion-padding">
+    Please do not call Yamato for any amends to your order, as these cannot be made once your order is
+    received.
+  </div> -->
+
+
+
+  <!-- <ion-list *ngFor="let entry of data?.food">
+    <ion-list-header>
+      <ion-label>{{ entry.category}}</ion-label>
+    </ion-list-header>
+    <ion-row *ngFor="let meal of entry.meals" class="ion-padding meal-row">
+      <ion-col size="8" class="border-bottom">
+        <ion-label>
+          {{ meal.name }}
+          <p>{{ meal.info }}</p>
+        </ion-label>
+        <ion-text color="dark"><b>{{ meal.price | currency:'ZAR ' }}</b></ion-text>
+      </ion-col>
+      <ion-col size="4" class="border-bottom">
+        <div class="meal-image" [style.background-image]="'url(' + meal.img + ')'"></div>
+      </ion-col>
+    </ion-row>
+  </ion-list> -->
+
+  <div class="px-5 mt-5">
+    <ion-button shape="round"  expand="full" color="dark" type="submit" (click)="addToCart(Meals)"> Add to cart </ion-button>
+  </div>
+
+</ion-content>

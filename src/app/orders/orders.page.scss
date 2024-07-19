@@ -1,0 +1,45 @@
+/* iOS places the subtitle above the title */
+ion-card-header.ios {
+    display: flex;
+    flex-flow: column-reverse;
+  }
+
+
+  ion-badge{
+    padding: 5px 15px 5px 15px;
+  }
+
+  ion-content {
+   
+    --background: #f8f9fd;
+    
+  }
+
+  div ion-card div:empty {
+    --background:red;
+  }
+
+  ion-content{
+    --background:#f8f9fd;
+}
+
+ion-card{
+    margin-inline:0px;
+    margin: 10px;
+    border-radius:25px;
+  }
+
+  .ion-color-medium {
+    --ion-color-base: #2dd36f !important;
+    font-size: 30px;
+}
+
+.settings-items-padding{
+    padding: 20px 0px 20px 0px;
+}
+
+.pr-2{
+    padding-right:20px;
+}
+
+p{font-size:12px;}

@@ -1,0 +1,68 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-button fill="solid" shape="round" color="light" routerLink="/home">
+        <ion-icon slot="icon-only" name="arrow-back" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Book Table</ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-button fill="solid" shape="round" color="light">
+        <ion-icon slot="icon-only" name="share-outline" color="primary"></ion-icon>
+      </ion-button>
+      <ion-button fill="solid" shape="round" color="light">
+        <ion-icon slot="icon-only" name="search-outline" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-row>
+	<form class="booking-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <!-- Gender -->
+    <div class="group-gap">
+      <p class="text-center mt-5" style="font-size:16px;font-weight:600;">Bringing guests?</p>
+      <div class="d-block my-3">
+
+        <ion-card class="bordered">
+          <input id="1" type="radio" class="custom-control-input" value="1" name="guests" formControlName="guests">
+          <label class="custom-control-label" for="1">1 Person</label>
+        </ion-card>
+
+        <ion-card class="bordered">
+          <input id="2" type="radio" class="custom-control-input" value="2" name="guests" formControlName="guests">
+          <label class="custom-control-label" for="2">2 Persons</label>
+        </ion-card>
+
+        <ion-card class="bordered">
+          <input id="3" type="radio" class="custom-control-input" value="3" name="guests" formControlName="guests">
+          <label class="custom-control-label" for="3">3 Persons</label>
+        </ion-card>
+
+        <ion-card class="bordered">
+          <input id="4" type="radio" class="custom-control-input" value="4" name="guests" formControlName="guests">
+          <label class="custom-control-label" for="4">4 Persons</label>
+        </ion-card>
+
+        <p class="text-center mt-5" style="font-size:16px;font-weight:600;">Select Date & Time</p>
+    <ion-datetime  name="dateTime" formControlName="dateTime"></ion-datetime>
+  
+    <p class="text-center mt-5" style="font-size:16px;font-weight:600;">Add a note</p>
+    <div style="margin-bottom:20px;padding:20px;" class="form-group">
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="note" formControlName="note"></textarea>
+    </div>
+
+        <div class="invalid-feedback" *ngIf="submitted&& myForm.errors?.required">
+          <p>Please select either value</p>
+        </div>
+      </div>
+    </div>
+
+      <!-- Submit Button -->
+      <p class="text-center"><ion-button shape="round" expand="full" color="dark" type="submit">Continue</ion-button></p>
+  </form><!-- Form ends -->
+</ion-row>
+</ion-content>
+
+

@@ -1,0 +1,83 @@
+ion-radio::part(container) {
+    width: 30px;
+    height: 30px;
+    
+    border-radius: 8px;
+    border: 2px solid #ddd;
+  }
+
+.time-body{
+  background: #000!important;
+    color: #fff;
+}
+
+button{
+  background: #000;
+  color: #fff;
+}
+
+.time-label{
+  color:#000;
+}
+
+  .booking-form{
+    background: #eee;
+    width: 100%;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    margin-top: 40px;
+    text-align: center;
+  }
+  .bordered{
+
+    background: #F7F8FB;
+    border-radius: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  ion-datetime{
+    margin: auto;
+    padding: 10px;
+    border-radius: 25px;
+  }
+  
+  ion-radio::part(mark) {
+    background: none;
+    transition: none;
+    transform: none;
+    border-radius: 0;
+  }
+  
+  ion-radio.radio-checked::part(container) {
+    background: #6815ec;
+    border-color: transparent;
+  }
+  
+  ion-radio.radio-checked::part(mark) {
+    width: 6px;
+    height: 10px;
+  
+    border-width: 0px 2px 2px 0px;
+    border-style: solid;
+    border-color: #fff;
+  
+    transform: rotate(45deg);
+  }
+
+  ion-radio{
+    margin-right:30px;
+  }
+
+
+  ion-label{
+    margin-right:10px;
+  }
+
+  form{
+    margin:auto;
+  }
+  .form-control{
+    width: 100%;
+    border-radius: 25px;
+  }
